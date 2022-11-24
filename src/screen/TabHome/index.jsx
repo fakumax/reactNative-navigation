@@ -1,21 +1,23 @@
 import React from 'react';
 import { View, StatusBar, Button, StyleSheet } from 'react-native';
 
-const Login = ({ navigation }) => {
+const TabHome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('TabHome')}
+        onPress={() => {
+          console.log('ir a Home');
+        }}
         title='Loguear e ir a stack'
         color='#841584'
-        accessibilityLabel='Boton login'
+        accessibilityLabel='Boton TabHome'
       />
       <StatusBar style='auto' />
     </View>
   );
 };
 
-export default Login;
+export default TabHome;
 
 const styles = StyleSheet.create({
   container: {
