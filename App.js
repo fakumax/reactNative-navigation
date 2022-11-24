@@ -1,29 +1,38 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={() => {
-          console.log('ir a stack');
-        }}
-        title='Loguear e ir a stack'
-        color='#841584'
-        accessibilityLabel='Boton login'
-      />
-      <StatusBar style='auto' />
-    </View>
-  );
+/* React Navigation */
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+
+import Login from './src/screen/Login';
+
+const screenOptionStyle = {
+  title: '',
+  headerStyle: {
+    elevation: 0, //Elimina la linea del header Android
+    shadowColor: 'transparent', //Elimina la linea del header IOS
+    backgroundColor: 'transparent',
+    height: 0,
+  },
+  headerShown: false,
+  //headerMode: 'none',
+  // headerTintColor: '#fff',
+  // headerTitleStyle: {
+  //   fontWeight: 'bold',
+  // },
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
