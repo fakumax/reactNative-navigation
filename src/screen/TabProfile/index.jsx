@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, StatusBar, Button, StyleSheet } from 'react-native';
 
-const TabHome = ({ navigation }) => {
+const TabProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('TabHome')}
-        title='Enter in Home'
+        onPress={() => navigation.navigate('TabProfile')}
+        title='Enter in Profile'
         color='#841584'
-        accessibilityLabel='Boton TabHome'
+        accessibilityLabel='Boton TabProfile'
       />
       {/* <Button title='Go back' onPress={() => navigation.goBack()} /> */}
 
@@ -17,7 +17,7 @@ const TabHome = ({ navigation }) => {
   );
 };
 
-export default TabHome;
+export default TabProfile;
 
 const styles = StyleSheet.create({
   container: {

@@ -7,8 +7,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
-import Login from './src/screen/Login';
-import TabHome from './src/screen/TabHome';
+import FirstScreen from './src/screen/Login';
+
+import TabNavigator from './src/screen/AppNavigation/TabNavigator.js';
 
 const screenOptionStyle = {
   title: '',
@@ -29,13 +30,16 @@ const screenOptionStyle = {
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName='InitialScreen'
+        screenOptions={screenOptionStyle}
+      >
+        <Stack.Screen name='InitialScreen' component={FirstScreen} />
         <Stack.Screen
-          name='Login'
-          component={Login}
+          name='TabHome'
+          component={TabNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name='TabHome' component={TabHome} />
       </Stack.Navigator>
     </NavigationContainer>
   );
