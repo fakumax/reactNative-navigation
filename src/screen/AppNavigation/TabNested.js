@@ -35,7 +35,7 @@ export const TabNestedHome = () => {
       screenOptions={screenOptionStyle}
     >
       <Stack.Screen name='HomeScreen' component={Home} />
-      {/* <Stack.Screen name='Settings' component={Settings} /> */}
+      <Stack.Screen name='Settings' component={Home} />
     </Stack.Navigator>
   );
 };

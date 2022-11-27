@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabHome from '../TabHome';
 import TabProfile from '../TabProfile';
 import TabSupport from '../TabSupport';
-import { TabNestedHome } from './TabNested';
+//import { TabNestedHome } from './TabNested';
 const Tab = createBottomTabNavigator();
 
 const screenOptionStyle = {
@@ -33,7 +33,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen
         name='Inicio'
-        component={TabNestedHome}
+        component={TabHome}
         options={{ headerShown: true }}
       />
       <Tab.Screen
