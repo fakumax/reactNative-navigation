@@ -10,7 +10,7 @@ export const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('Settings')}
+        onPress={() => navigation.navigate('SettingsProfile')}
         title='Profile'
         color='#841584'
         accessibilityLabel='Boton Profile'
@@ -25,7 +25,7 @@ export const Settings = ({ navigation }) => {
     <View style={styles.container}>
       <Button
         onPress={() => navigation.goBack()}
-        title='Setting'
+        title='SettingsProfile'
         color='#841584'
         accessibilityLabel='Boton Home'
       />
@@ -41,7 +41,7 @@ const TabProfile = ({ navigation }) => {
       //screenOptions={screenOptionStyle}
     >
       <Stack.Screen name='ProfileScreen' component={Profile} />
-      <Stack.Screen name='Settings' component={Settings} />
+      <Stack.Screen name='SettingsProfile' component={Settings} />
     </Stack.Navigator>
   );
 };

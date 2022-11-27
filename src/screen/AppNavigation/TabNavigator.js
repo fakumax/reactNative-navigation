@@ -34,17 +34,17 @@ const TabNavigator = () => {
       <Tab.Screen
         name='Inicio'
         component={TabHome}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name='Soporte'
         component={TabSupport}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name='Perfil'
         component={TabProfile}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
     </Tab.Navigator>
   );

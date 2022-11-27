@@ -10,10 +10,10 @@ export const Support = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('Settings')}
-        title='Support'
+        onPress={() => navigation.navigate('SettingsSupport')}
+        title='SettingsSupport'
         color='#841584'
-        accessibilityLabel='Boton Support'
+        accessibilityLabel='Boton Support ticket'
       />
       <StatusBar style='auto' />
     </View>
@@ -25,7 +25,7 @@ export const Settings = ({ navigation }) => {
     <View style={styles.container}>
       <Button
         onPress={() => navigation.goBack()}
-        title='Setting'
+        title='SettingsSupport'
         color='#841584'
         accessibilityLabel='Boton Home'
       />
@@ -41,7 +41,7 @@ const TabSupport = ({ navigation }) => {
       //screenOptions={screenOptionStyle}
     >
       <Stack.Screen name='SupportScreen' component={Support} />
-      <Stack.Screen name='Settings' component={Settings} />
+      <Stack.Screen name='SettingsSupport' component={Settings} />
     </Stack.Navigator>
   );
 };

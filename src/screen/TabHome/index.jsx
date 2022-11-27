@@ -10,7 +10,7 @@ export const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('Settings')}
+        onPress={() => navigation.navigate('SettingsHome')}
         title='HOME'
         color='#841584'
         accessibilityLabel='Boton Home'
@@ -41,7 +41,7 @@ const TabHome = ({ navigation }) => {
       //screenOptions={screenOptionStyle}
     >
       <Stack.Screen name='HomeScreen' component={Home} />
-      <Stack.Screen name='Settings' component={Settings} />
+      <Stack.Screen name='SettingsHome' component={Settings} />
     </Stack.Navigator>
   );
 };
