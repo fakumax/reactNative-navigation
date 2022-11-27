@@ -5,7 +5,28 @@ import TabHome from '../TabHome';
 import TabProfile from '../TabProfile';
 import TabSupport from '../TabSupport';
 //import { TabNestedHome } from './TabNested';
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+} from '@react-navigation/native';
+
 const Tab = createBottomTabNavigator();
+
+function getHeaderTitle(route) {
+  // If the focused route is not found, we need to assume it's the initial screen
+  // This can happen during if there hasn't been any navigation inside the screen
+  // In our case, it's "Feed" as that's the first screen inside the navigator
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+
+  switch (routeName) {
+    case 'Inicio':
+      return 'News Home';
+    case 'Profile':
+      return 'My profile';
+    case 'Account':
+      return 'My account';
+  }
+}
 
 const screenOptionStyle = {
   title: '',
@@ -26,15 +47,19 @@ const screenOptionStyle = {
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         tabBarActiveTintColor: 'red',
         tabBarInactiveTintColor: 'grey',
+        headerShown: true,
       })}
     >
       <Tab.Screen
         name='Inicio'
         component={TabHome}
-        options={{ headerShown: false }}
+        options={({ route }) => ({
+          headerTitle: getHeaderTitle(route),
+          headerShown: true,
+        })}
       />
       <Tab.Screen
         name='Soporte'

@@ -2,9 +2,14 @@ import React from 'react';
 import { View, StatusBar, Button, StyleSheet } from 'react-native';
 
 /* React Navigation */
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
+
+import { SettingScreen } from './SettingScreen';
+import {
+  getFocusedRouteNameFromRoute,
+  NavigationContainer,
+} from '@react-navigation/native';
 
 export const Home = ({ navigation }) => {
   return (
@@ -20,28 +25,39 @@ export const Home = ({ navigation }) => {
   );
 };
 
-export const Settings = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={() => navigation.goBack()}
-        title='Setting'
-        color='#841584'
-        accessibilityLabel='Boton Home'
-      />
-      <StatusBar style='auto' />
-    </View>
-  );
-};
-
 const TabHome = ({ navigation }) => {
   return (
     <Stack.Navigator
       initialRouteName='HomeScreen'
-      //screenOptions={screenOptionStyle}
+      options={{
+        headerShown: true,
+        tabBarStyle: { display: 'none' },
+        tabBarVisible: false,
+      }}
     >
-      <Stack.Screen name='HomeScreen' component={Home} />
-      <Stack.Screen name='SettingsHome' component={Settings} />
+      <Stack.Screen
+        name='HomeScreen'
+        component={Home}
+        options={({ route }) => ({
+          tabBarStyle: ((route) => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+            console.log(routeName);
+            if (routeName === 'SettingsHome') {
+              return { display: 'none' };
+            }
+            return;
+          })(route),
+        })}
+      />
+      <Stack.Screen
+        name='SettingsHome'
+        component={SettingScreen}
+        options={{
+          headerShown: true,
+          tabBarStyle: { display: 'none' },
+          tabBarVisible: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

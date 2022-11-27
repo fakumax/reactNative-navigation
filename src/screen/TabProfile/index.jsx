@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
+import { SettingsProfile } from './SettingsProfile';
+
 export const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -41,7 +43,7 @@ const TabProfile = ({ navigation }) => {
       //screenOptions={screenOptionStyle}
     >
       <Stack.Screen name='ProfileScreen' component={Profile} />
-      <Stack.Screen name='SettingsProfile' component={Settings} />
+      <Stack.Screen name='SettingsProfile' component={SettingsProfile} />
     </Stack.Navigator>
   );
 };
