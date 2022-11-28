@@ -5,12 +5,13 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 /* React Navigation */
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 const Stack = createNativeStackNavigator();
 
 import FirstScreen from './src/screen/Login';
 
 import TabNavigator from './src/screen/AppNavigation/TabNavigator.js';
-
+import NoTabBarStack from './src/screen/AppNavigation/NoTabBarStack';
 const screenOptionStyle = {
   title: '',
   headerStyle: {
@@ -40,6 +41,7 @@ const App = () => {
           component={TabNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name='NoTabBar' component={NoTabBarStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

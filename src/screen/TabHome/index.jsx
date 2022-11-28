@@ -11,54 +11,33 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 
-export const Home = ({ navigation }) => {
+// export const Home = ({ navigation }) => {
+//   return (
+//     <View style={styles.container}>
+//       <Button
+//         onPress={() => navigation.navigate('SettingsHome')}
+//         title='HOME'
+//         color='#841584'
+//         accessibilityLabel='Boton Home'
+//       />
+//       <StatusBar style='auto' />
+//     </View>
+//   );
+// };
+
+const TabHome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('SettingsHome')}
+        onPress={() =>
+          navigation.navigate('NoTabBar', { screen: SettingScreen })
+        }
         title='HOME'
         color='#841584'
         accessibilityLabel='Boton Home'
       />
       <StatusBar style='auto' />
     </View>
-  );
-};
-
-const TabHome = ({ navigation }) => {
-  return (
-    <Stack.Navigator
-      initialRouteName='HomeScreen'
-      options={{
-        headerShown: true,
-        tabBarStyle: { display: 'none' },
-        tabBarVisible: false,
-      }}
-    >
-      <Stack.Screen
-        name='HomeScreen'
-        component={Home}
-        options={({ route }) => ({
-          tabBarStyle: ((route) => {
-            const routeName = getFocusedRouteNameFromRoute(route) ?? '';
-            console.log(routeName);
-            if (routeName === 'SettingsHome') {
-              return { display: 'none' };
-            }
-            return;
-          })(route),
-        })}
-      />
-      <Stack.Screen
-        name='SettingsHome'
-        component={SettingScreen}
-        options={{
-          headerShown: true,
-          tabBarStyle: { display: 'none' },
-          tabBarVisible: false,
-        }}
-      />
-    </Stack.Navigator>
   );
 };
 
