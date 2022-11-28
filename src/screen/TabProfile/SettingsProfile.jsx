@@ -10,7 +10,7 @@ export const SettingsProfile = ({ navigation }) => {
     <View style={styles.container}>
       <Button
         onPress={() => navigation.goBack()}
-        title='Setting'
+        title='Go Back profile'
         color='#841584'
         accessibilityLabel='Boton Home'
       />

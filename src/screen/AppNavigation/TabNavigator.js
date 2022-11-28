@@ -51,26 +51,12 @@ const TabNavigator = () => {
         tabBarActiveTintColor: 'red',
         tabBarInactiveTintColor: 'grey',
         headerShown: true,
+        headerStyle: { backgroundColor: 'papayawhip' },
       })}
     >
-      <Tab.Screen
-        name='Inicio'
-        component={TabHome}
-        options={({ route }) => ({
-          headerTitle: getHeaderTitle(route),
-          headerShown: true,
-        })}
-      />
-      <Tab.Screen
-        name='Soporte'
-        component={TabSupport}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name='Perfil'
-        component={TabProfile}
-        options={{ headerShown: false }}
-      />
+      <Tab.Screen name='Inicio' component={TabHome} />
+      <Tab.Screen name='Soporte' component={TabSupport} />
+      <Tab.Screen name='Perfil' component={TabProfile} />
     </Tab.Navigator>
   );
 };

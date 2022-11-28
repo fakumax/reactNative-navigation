@@ -5,32 +5,12 @@ import { View, StatusBar, Button, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
-import { SettingScreen } from './SettingScreen';
-import {
-  getFocusedRouteNameFromRoute,
-  NavigationContainer,
-} from '@react-navigation/native';
-
-// export const Home = ({ navigation }) => {
-//   return (
-//     <View style={styles.container}>
-//       <Button
-//         onPress={() => navigation.navigate('SettingsHome')}
-//         title='HOME'
-//         color='#841584'
-//         accessibilityLabel='Boton Home'
-//       />
-//       <StatusBar style='auto' />
-//     </View>
-//   );
-// };
-
 const TabHome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
         onPress={() =>
-          navigation.navigate('NoTabBar', { screen: SettingScreen })
+          navigation.navigate('NoTabBar', { screen: 'SettingScreen' })
         }
         title='HOME'
         color='#841584'

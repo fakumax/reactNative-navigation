@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import { SettingScreen } from '../TabHome/SettingScreen';
+import { SettingsProfile } from '../TabProfile/SettingsProfile';
 
 const screenOptionStyle = {
   headerStyle: {
@@ -37,8 +38,17 @@ const NoTabBarStack = () => {
         component={SettingScreen}
         options={{
           headerShown: true,
-          tabBarStyle: { display: 'none' },
-          tabBarVisible: false,
+          //   tabBarStyle: { display: 'none' },
+          //   tabBarVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name='SettingProfile'
+        component={SettingsProfile}
+        options={{
+          headerShown: true,
+          //   tabBarStyle: { display: 'none' },
+          //   tabBarVisible: false,
         }}
       />
     </Stack.Navigator>

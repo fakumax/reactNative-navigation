@@ -2,49 +2,22 @@ import React from 'react';
 import { View, StatusBar, Button, StyleSheet } from 'react-native';
 
 /* React Navigation */
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
-import { SettingsProfile } from './SettingsProfile';
-
-export const Profile = ({ navigation }) => {
+const TabProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => navigation.navigate('SettingsProfile')}
-        title='Profile'
+        onPress={() =>
+          navigation.navigate('NoTabBar', { screen: 'SettingProfile' })
+        }
+        title='PROFILE'
         color='#841584'
         accessibilityLabel='Boton Profile'
       />
       <StatusBar style='auto' />
     </View>
-  );
-};
-
-export const Settings = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={() => navigation.goBack()}
-        title='SettingsProfile'
-        color='#841584'
-        accessibilityLabel='Boton Home'
-      />
-      <StatusBar style='auto' />
-    </View>
-  );
-};
-
-const TabProfile = ({ navigation }) => {
-  return (
-    <Stack.Navigator
-      initialRouteName='ProfileScreen'
-      //screenOptions={screenOptionStyle}
-    >
-      <Stack.Screen name='ProfileScreen' component={Profile} />
-      <Stack.Screen name='SettingsProfile' component={SettingsProfile} />
-    </Stack.Navigator>
   );
 };
 
